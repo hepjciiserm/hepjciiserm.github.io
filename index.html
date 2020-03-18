@@ -9,197 +9,92 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5" />
     <link rel="stylesheet" href="assets/css/main.css" />
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
 
     <style>
+
+    	 body {
+
+          background-image: url('images/bg_logo_iiserm.png');
+          background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+        }
         * {
             box-sizing: border-box;
         }
-
-        .mySlides {
-            display: none;
-        }
-
-        img {
-            vertical-align: middle;
-        }
-
-        /* Slideshow container */
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-        }
-
-        /* Caption text */
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-
-        /* The dots/bullets/indicators */
-        .dot {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 1.0s ease;
-        }
-
-        .active {
-            background-color: #717171;
-        }
-
-        /* Fading animation */
-        .fade {
-            -webkit-animation-name: fade;
-            -webkit-animation-duration: 4.5s;
-            animation-name: fade;
-            animation-duration: 4.5s;
-        }
-
-        @-webkit-keyframes fade {
-            from {
-                opacity: .4
-            }
-
-            to {
-                opacity: 1
-            }
-        }
-
-        @keyframes fade {
-            from {
-                opacity: .4
-            }
-
-            to {
-                opacity: 1
-            }
-        }
-
-        /* On smaller screens, decrease text size */
-        @media only screen and (max-width: 300px) {
-            .text {
-                font-size: 11px
-            }
-        }
-
-        #myBtn {
-            display: none;
-            position: fixed;
-            bottom: 40px;
-            right: 50px;
-            z-index: 99;
-            font-size: 15px;
-            border: blue;
-            outline: blue;
-            background-color: darkblue;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        #myBtn:hover {
-            background-color: #555;
-        }
-
+        
         i {
             border: solid black;
             border-width: 0 3px 3px 0;
             display: inline-block;
             padding: 3px;
         }
-
+        
         .right {
             transform: rotate(-45deg);
             -webkit-transform: rotate(-45deg);
         }
-
+        
         .left {
             transform: rotate(135deg);
             -webkit-transform: rotate(135deg);
         }
-
+        
         .up {
             transform: rotate(-135deg);
             -webkit-transform: rotate(-135deg);
         }
-
+        
         .down {
             transform: rotate(45deg);
             -webkit-transform: rotate(45deg);
         }
-
+        
         .collapsible {
             background-color: #777;
             color: white;
             cursor: pointer;
-            padding: 10px;
-            width: 2%;
+            padding: 2px;
+            padding-left: 5%;
+            padding-right: 3%;
+            width: 100%;
             border: none;
             text-align: left;
             outline: none;
-            font-size: 2px;
+            font-size: 15px;
         }
-
+        
         .active,
         .collapsible:hover {
             background-color: #555;
         }
-
-        .colpcontent {
-            padding: 0 12px;
-            display: none;
+        
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+        
+        .active:after {
+            content: "\2212";
+        }
+        
+        .contentCollapsible {
+            padding: 0 18px;
+            max-height: 0;
             overflow: hidden;
-
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
         }
     </style>
 </head>
 
 <body class="is-preload">
-
-
-
-    <button onclick="topFunction()" id="myBtn" title="Go to top" style="display: none;">Top</button>
-    <script>
-        //Get the button
-        var mybutton = document.getElementById("myBtn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
+    <a id="topButton"></a>
 
     <!-- Wrapper -->
     <div id="wrapper">
@@ -227,67 +122,83 @@
                 <!-- Header -->
                 <header id="header">
                     <a href="index.html" class="logo"><strong>Home</strong> </a>
-                    <ul class="icons">
-                        <li><a href="" class="icon brands fa--f"><span class="label">Facebook</span></a></li>
-                    </ul>
-
                 </header>
 
 
                 <!-- Banner -->
                 <section id="banner">
-                    <div class="content">
-                        <header>
-                            <font face="verdana">
-                                <img src="images/iiserm_logo.jpg" height="80" alt="" />
-                                <h2>THEP Journal Club <br />
-                                    IISER Mohali </h2>
-                                <p></p>
-                        </header>
-                        <p>Welcome to Theoretical High Energy Physics Journal Club at <a
-                                href="https://www.iisermohali.ac.in/">IISER Mohali.</a></p>
-                        <p> The THEP Journal Club usually meets weekly on Thursdays from 3:00-4:00 P.M. at AB1-2A. </p>
+                    <div>
+                        <div class="content" style="width: 30%; float:left">
+                            <header>
+                                <font face="verdana">
+                                    <img src="images/iiserm_logo.jpg" height="80" alt="" />
+                                    <h2>THEP Journal Club <br /> IISER Mohali </h2>
+                                    <p></p>
+                            </header>
+                            <p>Welcome to Theoretical High Energy Physics Journal Club at <a href="https://www.iisermohali.ac.in/">IISER Mohali.</a></p>
+                            <p> The THEP Journal Club usually meets weekly on Thursdays from 3:00-4:00 P.M. at AB1-2A. </p>
 
-                        <!--
+                            <!--
 											<ul class="actions">
 											<li><a href="#" class="button big">Learn More</a></li>
 											</ul>
 										-->
-                    </div>
+                        </div>
 
-                    <!-- <span class="image object">
+                        <!-- <span class="image object">
                         <img src="images/Academic area1.jpg" alt="" />
                     </span> -->
+                        <div style="width:70%; float: right">
+                            <div class="slideshow-container">
+                                <div class="mySlides fade">
+                                    <div class="numbertext">1 / 4</div>
+                                    <img src="images/Academic area1.jpg" style="width:100%;" onclick="plusSlides(1)">
+                                    <div class="bottomright">
+                                        Credits: https://twitter.com/iisermohali
+                                    </div>
+                                </div>
 
-                    <div class="slideshow-container">
-                        <span class="image object">
-                            <div class="mySlides fade">
-                                <div class="numbertext">1 / 4</div>
-                                <img src="images/Academic area1.jpg" style="width:180%">
-                                <div class="text"></div>
-                 		<font face="verdana", size="1.5">Credits: https://twitter.com/iisermohali</font>
-                            </div>
+                                <div class="mySlides fade">
+                                    <div class="numbertext">2 / 4</div>
+                                    <img src="images/Academic area2.jpeg" style="width:100%" onclick="plusSlides(1)">
+                                    <div class="bottomright">
+                                        Credits: https://twitter.com/iisermohali
+                                    </div>
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="numbertext">3 / 4</div>
+                                    <img src="images/Academic area3.jpeg" style="width:100%" onclick="plusSlides(1)">
+                                    <div class="bottomright">
+                                        Credits: https://twitter.com/iisermohali
+                                    </div>
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="numbertext">4 / 4</div>
+                                    <img src="images/maingate.jpeg" style="width:100%" onclick="plusSlides(1)">
+                                    <div class="bottomright">
+                                        Credits: https://twitter.com/iisermohali
+                                    </div>
+                                </div>
 
-                            <div class="mySlides fade">
-                                <div class="numbertext">2 / 4</div>
-                                <img src="images/Academic area2.jpeg" style="width:180%">
-                                <div class="text"></div>
-				<font face="verdana", size="1.5">Credits: https://twitter.com/iisermohali</font>    
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
                             </div>
-                            <div class="mySlides fade">
-                                <div class="numbertext">3 / 4</div>
-                                <img src="images/Academic area3.jpeg" style="width:180%">
-                                <div class="text"></div>
-				<font face="verdana", size="1.5">Credits: https://twitter.com/iisermohali</font>    
+                            <br/>
+
+                            <div style="text-align:center">
+                                <span class="dot" onclick="currentSlide(1)"></span>
+                                <span class="dot" onclick="currentSlide(2)"></span>
+                                <span class="dot" onclick="currentSlide(3)"></span>
+                                <span class="dot" onclick="currentSlide(4)"></span>
                             </div>
-                            <div class="mySlides fade">
-                                <div class="numbertext">4 / 4</div>
-                                <img src="images/maingate.jpeg" style="width:180%">
-                                <div class="text"></div>
-				<font face="verdana", size="1.5">Credits: https://twitter.com/iisermohali</font>    
-                            </div>
+                        </div>
+
+                        <!-- <div class="slideshow-container" style="width:70%; float: right">
+                            <span class="image object" style="width:90%; float: left">
+                        
 
                         </span>
+                        </div> -->
                     </div>
                     <br>
 
@@ -296,32 +207,6 @@
 
                     </div>
 
-                    <script>
-                        var slideIndex = 0;
-                        showSlides();
-
-                        function showSlides() {
-                            var i;
-                            var slides = document.getElementsByClassName("mySlides");
-                            var dots = document.getElementsByClassName("mySlides");
-                            for (i = 0; i < slides.length; i++) {
-                                slides[i].style.display = "none";
-                            }
-                            slideIndex++;
-                            if (slideIndex > slides.length) { slideIndex = 1 }
-                            for (i = 0; i < dots.length; i++) {
-                                dots[i].className = dots[i].className.replace(" active", "");
-                            }
-                            slides[slideIndex - 1].style.display = "block";
-                            dots[slideIndex - 1].className += " active";
-                            setTimeout(showSlides, 5000); // Change image every 5 seconds
-                        }
-                    </script>
-                    <h2 class="col-xs-12 col-md-9">
-                        <br>
-                        <br>
-                    </h2>
-                    </font>
                 </section>
 
                 <!-- Members List -->
@@ -332,7 +217,9 @@
                     <header id="header">
                         <h3>THEP Journal Club Members</h3>
                     </header>
-                    <p></br></p>
+                    <p>
+                        </br>
+                    </p>
 
 
                     <div class="table-wrapper">
@@ -577,137 +464,135 @@
                     <header id="header">
                         <h3>THEP Journal Club Meetings </h3>
                     </header>
-                    <h4></br>Even Semester 2019-20</h4>
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Topic</th>
-                                    <th>Speaker</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Feb 27, 2020</td>
-                                    <td>Grand Pleromal Transmutation: UV Condensates via Konsishi Anomaly, Dimensional
-                                        Transmutation, and Ultraminimal GUTs.</br> (<a
-                                            href="https://arxiv.org/abs/2001.05803">arXiv:2001.05803</a>)</td>
-                                    <td>Prof. Charanjit Aulakh</td>
-                                </tr>
-                                <tr>
-                                    <td>Mar 03, 2020</td>
-                                    <td>THEP Seminar: Determination of the CP property of a scalar through its couplings
-                                        with a fermion pair (arXiv: 1904.09895, arXiv:1501.03157, arXiv: 0707.2878,
-                                        arXiv:1103.5404
-                                        ) </td>
-                                    <td>Prof. Rohini Godbole, Indian Institute of Science, Bangalore</td>
-                                </tr>
-                            </tbody>
+                    <br/>
+                    <div>
+                        <button class="collapsible" id="currentSemester">Even Semester 2019-20</button>
+                        <div class="contentCollapsible">
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Topic</th>
+                                            <th>Speaker</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Feb 27, 2020</td>
+                                            <td>Grand Pleromal Transmutation: UV Condensates via Konsishi Anomaly, Dimensional Transmutation, and Ultraminimal GUTs.</br> (<a href="https://arxiv.org/abs/2001.05803">arXiv:2001.05803</a>)</td>
+                                            <td>Prof. Charanjit Aulakh</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mar 03, 2020</td>
+                                            <td>THEP Seminar: Determination of the CP property of a scalar through its couplings with a fermion pair (arXiv: 1904.09895, arXiv:1501.03157, arXiv: 0707.2878, arXiv:1103.5404 ) </td>
+                                            <td>Prof. Rohini Godbole, Indian Institute of Science, Bangalore</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        </table>
+                        <br/>
+                        <button class="collapsible">Odd Semester 2019-20</button>
+                        <div class="contentCollapsible">
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Topic</th>
+                                            <th>Speaker</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Aug 13, 2019</td>
+                                            <td>Introduction and Outline.</td>
+                                            <td>Dr. Anosh Joseph and Dr. Ambresh Shivaji</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aug 20, 2019</td>
+                                            <td>No Journal Club meeting. HEP Seminar instead..</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aug 27, 2019</td>
+                                            <td> Lorentz Breaking and SU(2)_L x U(1)_Y Gauge Invariance for Neutrino Decays [Part 1] (
+                                                <a href="https://arxiv.org/abs/1908.01389">arXiv:1908.01389</a>)</td>
+                                            <td>Dr. Ambresh Shivaji</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sep 03, 2019</td>
+                                            <td> Lorentz Breaking and SU(2)_L x U(1)_Y Gauge Invariance for Neutrino Decays [Part 2] (
+                                                <a href="https://arxiv.org/abs/1908.01389">arXiv:1908.01389</a>)</td>
+                                            <td>Dr. Ambresh Shivaji</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sep 10, 2019</td>
+                                            <td>No Journal Club Meeting - Academic Holiday (Muharram).</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sep 17, 2019</td>
+                                            <td>SYK Model and Quantum Gravity [Part 1].</td>
+                                            <td>Dr. K. P. Yogendran</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sep 24, 2019</td>
+                                            <td>No Journal Club Meeting. Prof. T. Padmanabhan's lecture instead.</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Oct 1, 2019</td>
+                                            <td>No Journal Club Meeting. HEP Seminar on Oct 5th instead.</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Oct 08, 2019</td>
+                                            <td>No Journal Club Meeting - Academic Holiday (Dussehara).</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Oct 15, 2019</td>
+                                            <td>No Journal Club Meeting - 2nd Mid-Sem Exam .</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Oct 22, 2019</td>
+                                            <td>No Journal Club Meeting - Mid-Sem Break</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Oct 29, 2019</td>
 
-                        <h4>Odd Semester 2019-20</h4>
-                        [Click box to expand or collapse] 
-                        <button type="button" class="collapsible">Expand</button>
-                        <div class="colpcontent">
-                        <div class="table-wrapper">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Topic</th>
-                                        <th>Speaker</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Aug 13, 2019</td>
-                                        <td>Introduction and Outline.</td>
-                                        <td>Dr. Anosh Joseph and Dr. Ambresh Shivaji</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Aug 20, 2019</td>
-                                        <td>No Journal Club meeting. HEP Seminar instead..</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Aug 27, 2019</td>
-                                        <td> Lorentz Breaking and SU(2)_L x U(1)_Y Gauge Invariance
-                                            for Neutrino Decays [Part 1]
-                                            (<a href="https://arxiv.org/abs/1908.01389">arXiv:1908.01389</a>)</td>
-                                        <td>Dr. Ambresh Shivaji</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sep 03, 2019</td>
-                                        <td> Lorentz Breaking and SU(2)_L x U(1)_Y Gauge Invariance
-                                            for Neutrino Decays [Part 2]
-                                            (<a href="https://arxiv.org/abs/1908.01389">arXiv:1908.01389</a>)</td>
-                                        <td>Dr. Ambresh Shivaji</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sep 10, 2019</td>
-                                        <td>No Journal Club Meeting - Academic Holiday (Muharram).</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sep 17, 2019</td>
-                                        <td>SYK Model and Quantum Gravity [Part 1].</td>
-                                        <td>Dr. K. P. Yogendran</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sep 24, 2019</td>
-                                        <td>No Journal Club Meeting. Prof. T. Padmanabhan's lecture instead.</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Oct 1, 2019</td>
-                                        <td>No Journal Club Meeting. HEP Seminar on Oct 5th instead.</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Oct 08, 2019</td>
-                                        <td>No Journal Club Meeting - Academic Holiday (Dussehara).</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Oct 15, 2019</td>
-                                        <td>No Journal Club Meeting - 2nd Mid-Sem Exam .</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Oct 22, 2019</td>
-                                        <td>No Journal Club Meeting - Mid-Sem Break</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Oct 29, 2019</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Nov 05, 2019</td>
-                                        <td>Wick's Theorem in General States</td>
-                                        <td>Mr. Shridhar Vinayak</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nov 12, 2019</td>
-                                        <td>No Journal Club Meeting - Academic Holiday (Guru Nanak's Birthday).</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nov 19, 2019</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nov 26, 2019</td>
-                                        <td>No Journal Club Meeting - End-Sem Exam. Resumes in Even Semester 2019-20.
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        </tr>
+                                        <tr>
+                                            <td>Nov 05, 2019</td>
+                                            <td>Wick's Theorem in General States</td>
+                                            <td>Mr. Shridhar Vinayak</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nov 12, 2019</td>
+                                            <td>No Journal Club Meeting - Academic Holiday (Guru Nanak's Birthday).</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nov 19, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nov 26, 2019</td>
+                                            <td>No Journal Club Meeting - End-Sem Exam. Resumes in Even Semester 2019-20.
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </section>
+                <br/>
+                <br/>
 
 
 
@@ -716,55 +601,73 @@
                         <h2>Get in touch </h2>
                     </header>
 
-                    <iframe
-                        src="https://maps.google.co.in/maps?oe=utf-8&amp;client=firefox-a&amp;ie=UTF8&amp;fb=1&amp;gl=in&amp;cid=6697184014991474466&amp;q=iiser+mohali&amp;hq=&amp;hnear=&amp;ll=30.663734,76.727267&amp;spn=0.006295,0.006295&amp;t=m&amp;output=embed"
-                        marginwidth="0" marginheight="0" scrolling="no" width="600" height="200" frameborder="0">
+                    <iframe src="https://maps.google.co.in/maps?oe=utf-8&amp;client=firefox-a&amp;ie=UTF8&amp;fb=1&amp;gl=in&amp;cid=6697184014991474466&amp;q=iiser+mohali&amp;hq=&amp;hnear=&amp;ll=30.663734,76.727267&amp;spn=0.006295,0.006295&amp;t=m&amp;output=embed" marginwidth="0"
+                        marginheight="0" scrolling="no" width="100%" height="auto" frameborder="0">
                     </iframe>
                     <h4>Indian Institute of Science Education and Research, Mohali</h4>
                     <ul class="contact">
                         <li class="icon solid fa-home"> Department of Physical Sciences, </br>
                             Knowledge city, Sector 81, </br> Manauli PO, Sahibzada Ajit Singh Nagar,</br>
                             Punjab, India 140306</li>
-                        <li class="icon solid fa-envelope">arpithk@iisermohali.ac.in </br>
-                            harkiratsingh@iisermohali.ac.in </br>
-                            mandeepkaur@iisermohali.ac.in</li>
+                        <li class="icon solid fa-envelope">arpithk[at]iisermohali.ac.in </br>
+                            harkiratsingh[at]iisermohali.ac.in </br>
+                            mandeepkaur[at]iisermohali.ac.in</li>
                         <!--<a href="#">--</a></li> -->
-                        <li class="icon solid fa-phone">--</li>
+                        <!-- <li class="icon solid fa-phone">--</li> -->
 
                     </ul>
                 </section>
 
+                <!-- Scripts -->
+                <script src="assets/js/jquery.min.js"></script>
+                <script src="assets/js/browser.min.js"></script>
+                <script src="assets/js/breakpoints.min.js"></script>
+                <script src="assets/js/util.js"></script>
+                <script src="assets/js/main.js"></script>
+                <script>
+                    var slideIndex = 1;
+                    var automaticSlideshow = true;
+                    showSlides(slideIndex);
 
+                    function plusSlides(n) {
+                        automaticSlideshow = false;
+                        automaticPlusSlides(n);
+                    }
 
+                    function automaticPlusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
 
-        <!-- Sidebar -->
+                    function currentSlide(n) {
+                        automaticSlideshow = false;
+                        showSlides(slideIndex = n);
+                    }
 
-
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var colpcontent = this.nextElementSibling;
-        if (colpcontent.style.display === "block") {
-            colpcontent.style.display = "none";
-        } else {
-            colpcontent.style.display = "block";
-        }
-      });
-    }
-    </script>
-
+                    function showSlides(n) {
+                        var i;
+                        var slides = document.getElementsByClassName("mySlides");
+                        var dots = document.getElementsByClassName("dot");
+                        if (n > slides.length) {
+                            slideIndex = 1
+                        }
+                        if (n < 1) {
+                            slideIndex = slides.length
+                        }
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
+                        setTimeout(function() {
+                            if (automaticSlideshow) {
+                                automaticPlusSlides(1);
+                            }
+                        }, 3000);
+                    }
+                </script>
 
 </body>
 
