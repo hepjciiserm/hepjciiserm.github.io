@@ -155,6 +155,8 @@ table {
     border-spacing: 0;
 }
 
+
+
 body {
     -webkit-text-size-adjust: none;
 }
@@ -2254,6 +2256,21 @@ ul.pagination li:last-child {
 table {
     margin: 0 0 2em 0;
     width: 100%;
+}
+
+th.tableDate{
+    width: 20%;
+    
+}
+
+th.tableTopic{
+    width: 50%;
+    
+}
+
+th.tableSpeaker{
+    width: 30%;
+    
 }
 
 table tbody tr {
