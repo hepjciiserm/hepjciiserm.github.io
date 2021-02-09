@@ -110,6 +110,18 @@ section {
     display: block;
 }
 
+
+@media screen and (max-width: 1920px) {
+    body {
+        width: 75%;
+        max-width: 1920px;
+        /* or whatever width you want */
+        margin-right: 15%;
+        margin-left: 10%;
+        line-height: 1;
+    }
+}
+
 @media screen and (max-width: 1680px) {
     body {
         width: 75%;
@@ -123,7 +135,7 @@ section {
 
 @media screen and (max-width: 1000px) {
     body {
-        width: 96%;
+        width: 75%;
         max-width: 100%;
         /* or whatever width you want */
         margin-right: 3%;
